@@ -6,17 +6,48 @@
     <title>Personal Blog</title>
     <%- include('./partials/design') %>
   </head>
-  <body>
-    <h1>Personal Blog</h1>
-    <ul>
-      <% posts.forEach(post => { %>
-      <li>
-        <h2><%= post.title %></h2>
-        <p><%= post.content %></p>
-        <p><%= post.date %></p>
-        <a href="/post/<%= post.id %>">Read more</a>
-      </li>
-      <% }) %>
-    </ul>
+  <body class="general">
+    <main>
+      <header><%- include('./partials/nav') %></header>
+
+      <section class="posts">
+        <div class="public-posts">
+          <h1>Public Posts for me.</h1>
+          <ul>
+            <% posts.forEach(post => { %>
+            <li class="post">
+              <h2><%= post.title %></h2>
+              <p><%= post.date %></p>
+              <a href="/post/<%= post.id %>" class="read-more">Read more</a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <div class="recent-posts">
+          <p>
+            <strong> Hello user, welcome to my blog! </strong> In this blog you
+            will find technological topics, news and much more.
+          </p>
+          <div>
+            <h2>Recent Post published</h2>
+            <div>
+              <h2>Tech</h2>
+              <div class="recent-post">
+                <h2>Title post</h2>
+                <p>Post Information</p>
+                <a href="#" class="read-more">Read more</a>
+              </div>
+              <h2>News</h2>
+              <div class="recent-post">
+                <h2>Title post</h2>
+                <p>Post Information</p>
+                <a href="#" class="read-more">Read more </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <%- include('./partials/footer') %>
+    </main>
   </body>
 </html>
