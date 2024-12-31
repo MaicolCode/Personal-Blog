@@ -14,7 +14,7 @@ adminRouter.get('/', (req, res) => {
 })
 
 adminRouter.get('/post/new', (req, res) => {
-  res.render('admin/actions/new')
+  res.render('admin/actions/create')
 })
 
 adminRouter.post('/post/new', (req, res) => {
