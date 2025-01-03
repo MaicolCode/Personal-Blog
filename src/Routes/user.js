@@ -7,7 +7,9 @@ const indexRouter = Router()
 const posts = JSON.parse(readFileSync(resolve('./src/utils/posts.json')))
 
 indexRouter.get('/', (req, res) => {
-  res.render('index', { posts })
+  const recentPosts = posts.sort((a, b) => b.id - a.id).slice(0, 2)
+
+  res.render('index', { posts, recentPosts })
 })
 
 indexRouter.get('/post/:id', (req, res) => {
