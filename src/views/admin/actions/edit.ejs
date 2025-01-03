@@ -30,11 +30,21 @@
             >
             <label for="date">Date</label>
             <input type="date" name="date" id="date" value="<%= post.date %>" />
-            <button type="submit" class="btn-edit">Edit</button>
+            <button type="button" class="btn-edit">Edit</button>
+            <%- include('../../modals/edit') %>
           </form>
         </div>
       </section>
       <%- include('../../partials/footer')%>
     </main>
+    <script>
+      const btnEdit = document.querySelector('.btn-edit')
+      const modalEdit = document.querySelector('.modal-content')
+
+      btnEdit.addEventListener('click', (e) => {
+        e.preventDefault()
+        modalEdit.style.display = 'flex'
+      })
+    </script>
   </body>
 </html>
