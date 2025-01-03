@@ -148,13 +148,18 @@ footer {
 .recent-posts {
   width: 300px;
   padding: 0px 1rem;
-
   overflow-y: auto;
 
   height: calc(100vh - 250px);
 
   h1 {
     font-size: 2rem;
+  }
+
+  .content-recent-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .recent-post {
@@ -170,7 +175,7 @@ footer {
     }
 
     p {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     a {
@@ -244,6 +249,7 @@ footer {
   .read-more {
     position: absolute;
     bottom: 10px;
+    right: 10px;
     text-decoration: none;
     color: #333;
     font-weight: bold;
@@ -305,6 +311,7 @@ footer {
 .control-section {
   display: flex;
   flex-direction: column;
+  padding: 20px;
   gap: 1rem;
   width: 100%;
   height: calc(100vh - 300px);
@@ -397,4 +404,106 @@ footer {
       }
     }
   }
+}
+
+/* View create of admin */
+
+.admin-section-create {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.content-create {
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.144);
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.content-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 10px;
+  overflow-y: auto;
+
+  input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #303030;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+
+  textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #303030;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  .btn-create {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #272727;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-create:hover {
+    background-color: #333;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+}
+
+/* View edit of admin */
+
+.admin-section-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.content-edit {
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.144);
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn-edit {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #272727;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-edit:hover {
+  background-color: #333;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
