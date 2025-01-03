@@ -31,9 +31,10 @@
                 <td>
                   <div class="actions">
                     <a href="/admin/post/<%= post.id %>">Edit</a>
-                    <a class="deleteButton" id="<%= post.id %>" href="/admin"
+                    <a class="deleteButton" id="<%= post.id %>" href="#"
                       >Delete</a
                     >
+                    <%- include('../modals/delete') %>
                   </div>
                 </td>
               </tr>
@@ -63,18 +64,39 @@
     </main>
   </body>
   <script>
-    const deleteButtons = document.querySelectorAll('.deleteButton')
-    const reloadButton = document.querySelector('.recargar')
-    deleteButtons.forEach((button) => {
-      button.addEventListener('click', (e) => {
-        const id = e.target.id
-        fetch(`http://localhost:3000/admin/delete/${id}`, {
-          method: 'DELETE'
+    const btnDelete = document.querySelectorAll('.deleteButton')
+    const modalDelete = document.querySelector('.modal-content')
+    const deleteButton = document.querySelector('.btn-modal-delete')
+    const btnDeleteModal = document.querySelector('.btn-modal-delete')
+    const btnCancelModal = document.querySelector('.btn-modal-delete-cancel')
+
+    btnDeleteModal.addEventListener('click', (e) => {
+      modalDelete.style.display = 'none'
+
+      const id = e.target.id
+      fetch(`http://localhost:3000/admin/delete/${id}`, {
+        method: 'DELETE'
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
         })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data)
-          })
+
+      location.reload()
+    })
+
+    btnCancelModal.addEventListener('click', (e) => {
+      e.preventDefault()
+      modalDelete.style.display = 'none'
+    })
+
+    btnDelete.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        const id = e.target.id
+        modalDelete.style.display = 'flex'
+        deleteButton.setAttribute('id', id)
       })
     })
   </script>
