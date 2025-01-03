@@ -30,19 +30,14 @@
           </p>
           <div>
             <h2>Recent Post published</h2>
-            <div>
-              <h2>Tech</h2>
+            <div class="content-recent-posts">
+              <% recentPosts.forEach(post => { %>
               <div class="recent-post">
-                <h2>Title post</h2>
-                <p>Post Information</p>
-                <a href="#" class="read-more">Read more</a>
+                <h2><%= post.title %></h2>
+                <p><%= post.date %></p>
+                <a href="/post/<%= post.id %>" class="read-more">Read more</a>
               </div>
-              <h2>News</h2>
-              <div class="recent-post">
-                <h2>Title post</h2>
-                <p>Post Information</p>
-                <a href="#" class="read-more">Read more </a>
-              </div>
+              <% }) %>
             </div>
           </div>
         </div>
