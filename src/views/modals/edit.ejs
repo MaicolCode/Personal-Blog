@@ -1,0 +1,23 @@
+<section class="modal-content">
+  <div class="modal-edit">
+    <p>¿Estás seguro de que quieres editar este post?</p>
+    <div class="actions-modal-edit">
+      <button type="submit" class="btn-modal-edit">Editar</button>
+      <button class="btn-modal-edit-cancel">Cancelar</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const btnEditModal = document.querySelector('.btn-modal-edit')
+  const btnCancelModal = document.querySelector('.btn-modal-edit-cancel')
+
+  btnEditModal.addEventListener('click', (e) => {
+    modalEdit.style.display = 'none'
+  })
+
+  btnCancelModal.addEventListener('click', (e) => {
+    e.preventDefault()
+    modalEdit.style.display = 'none'
+  })
+</script>
