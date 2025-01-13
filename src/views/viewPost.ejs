@@ -10,35 +10,16 @@
     <main>
       <header><%- include('./partials/nav') %></header>
       <section class="content">
-        <div>
+        <span>
           <hr />
-
-          <section class="post-details">
-            <h2><%= post.title %></h2>
-            <p><%= post.content %></p>
-            <span class="post-details-footer">
-              <p>Published on <%= post.date %></p>
-              <p>By MaicolCode</p>
-            </span>
-          </section>
-
-          <section>
-            <h2>Other posts</h2>
-            <div class="diferent-posts">
-              <% if (posts.length > 0) { %> <% posts.forEach(post => { %>
-              <div class="post-filter">
-                <h2><%= post.title %></h2>
-                <p><%= post.date %></p>
-                <a href="/post/<%= post.id %>" class="read-more">Read more</a>
-              </div>
-              <% }) } else { %>
-              <p style="font-size: 0.8rem; color: #616161">
-                There are no more posts available at the moment...
-              </p>
-              <% } %>
-            </div>
-          </section>
-        </div>
+        </span>
+        <section class="post-details">
+          <h2><%= post.title %></h2>
+          <div class="post-details-content"><%- post.content %></div>
+          <span class="post-details-footer">
+            Published on <%= post.date %> By MaicolCode
+          </span>
+        </section>
       </section>
       <%- include('./partials/footer') %>
     </main>
