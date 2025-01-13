@@ -7,6 +7,16 @@
     <%- include('../../partials/design') %>
   </head>
   <body class="general">
+    <!-- Script element sourcing TinyMCE -->
+    <script
+      type="application/javascript"
+      src="/tinymce/tinymce.min.js"
+    ></script>
+    <!-- Script element sourcing the TinyMCE configuration -->
+    <script
+      type="application/javascript"
+      src="/javascripts/my-tinymce-config.js"
+    ></script>
     <main>
       <header><%- include('../../partials/nav')%></header>
       <section class="admin-section-edit">
@@ -25,7 +35,12 @@
               value="<%= post.title %>"
             />
             <label for="content">Content</label>
-            <textarea name="content" id="content" cols="30" rows="10">
+            <textarea
+              name="content"
+              id="my-expressjs-tinymce-app"
+              cols="30"
+              rows="10"
+            >
 <%= post.content %></textarea
             >
             <label for="date">Date</label>
