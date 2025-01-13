@@ -60,6 +60,12 @@ footer {
   justify-content: space-between;
   align-items: center;
 
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .nav-links {
     display: flex;
     gap: 1rem;
@@ -91,6 +97,17 @@ footer {
   width: 100%;
 }
 
+.post-title {
+  span {
+    top: 55px;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: #5c5c5c;
+    color: #ffffff;
+  }
+}
+
 .public-posts {
   width: 500px;
   padding: 0px 1rem;
@@ -119,9 +136,28 @@ footer {
   background: #424242;
   padding: 5px 10px;
   border-radius: 10px;
+  opacity: 0.9;
 
-  h2 {
-    font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0.5;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  p {
+    margin-top: 30px;
+    font-size: 0.8rem;
   }
 
   .read-more {
@@ -146,10 +182,13 @@ footer {
   }
 }
 
+.post:hover {
+  background-color: #2b2b2b;
+}
+
 .recent-posts {
   width: 300px;
   padding: 0px 1rem;
-  overflow-y: auto;
 
   height: calc(100vh - 250px);
 
@@ -160,7 +199,10 @@ footer {
   .content-recent-posts {
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 380px);
     gap: 1rem;
+
+    overflow-y: scroll;
   }
 
   .recent-post {
@@ -170,12 +212,26 @@ footer {
     padding: 10px 10px;
     border-radius: 10px;
     background: #272727;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
 
-    h2 {
-      font-size: 1.1rem;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+      z-index: -1;
+      opacity: 0.5;
+
+      transition: all 0.3s ease-in-out;
     }
 
     p {
+      margin-top: 20px;
       font-size: 0.8rem;
     }
 
@@ -199,6 +255,10 @@ footer {
         cursor: pointer;
       }
     }
+  }
+
+  .recent-post:hover {
+    background-color: #3d3d3d;
   }
 }
 
@@ -273,9 +333,29 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 600px);
+  height: calc(100vh - 200px);
   width: 100%;
-  overflow-y: auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  .post-details-content {
+    padding: 0px 20px;
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
 
   a {
     position: sticky;
@@ -417,11 +497,14 @@ footer {
   width: 100%;
 }
 
-.content-create {
+.content-create,
+.content-edit {
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.144);
   border-radius: 10px;
   padding: 10px;
   width: 100%;
+  overflow-y: auto;
+  height: calc(100vh - 400px);
 }
 
 .content-form {
@@ -429,7 +512,6 @@ footer {
   flex-direction: column;
   gap: 1rem;
   padding: 10px;
-  overflow-y: auto;
 
   input {
     padding: 10px;
@@ -441,14 +523,8 @@ footer {
     font-size: 1rem;
   }
 
-  textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background-color: #303030;
-    color: #ffffff;
-    font-size: 1rem;
+  #my-expressjs-tinymce-app {
+    height: 10px;
   }
 
   label {
@@ -481,13 +557,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-  width: 100%;
-}
-
-.content-edit {
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.144);
-  border-radius: 10px;
-  padding: 10px;
   width: 100%;
 }
 
@@ -630,5 +699,31 @@ footer {
     color: #fff;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+  }
+}
+
+/* Style of error 404 */
+
+.error-404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: calc(100vh - 30px);
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #ffffff;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #e6e6e6;
   }
 }
