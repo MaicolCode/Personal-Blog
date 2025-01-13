@@ -18,13 +18,15 @@ adminRouter.get('/post/new', (req, res) => {
 })
 
 adminRouter.post('/post/new', (req, res) => {
-  const { title, content, date } = req.body
+  const { title, content, date, image, tag } = req.body
   const posts = getPosts()
 
   const newPost = {
     id: posts.length + 1,
     title,
     content,
+    image,
+    tag,
     date
   }
 
