@@ -61,6 +61,8 @@ footer {
   align-items: center;
 
   .logo {
+    text-decoration: none;
+    color: #e6e6e6;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -265,6 +267,7 @@ footer {
 /* View Posts */
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -331,6 +334,7 @@ footer {
 
 .post-details {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 200px);
@@ -792,5 +796,40 @@ footer {
   p {
     margin-top: 1rem;
     font-size: 0.9rem;
+  }
+}
+
+/* Design of share buttons */
+.share-buttons {
+  position: fixed;
+  display: flex;
+  z-index: 2;
+  padding: 80px 0px 0px 0px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.share-buttons a {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #e6e6e6;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  background: #4d4d4d;
+
+  &:hover {
+    background-color: #333;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
   }
 }
