@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { readFileSync, write, writeFileSync } from 'fs'
 import { resolve } from 'path'
+import { validateAuth } from '../middlewares/validateAuth.js'
 
 const adminRouter = Router()
 
@@ -8,16 +9,16 @@ const getPosts = () => {
   return JSON.parse(readFileSync(resolve('./src/utils/posts.json')))
 }
 
-adminRouter.get('/', (req, res) => {
+adminRouter.get('/', validateAuth, (req, res) => {
   const posts = getPosts()
-  res.render('admin/index', { posts })
+  res.render('admin/index', { posts, accessPage: true })
 })
 
-adminRouter.get('/post/new', (req, res) => {
-  res.render('admin/actions/create')
+adminRouter.get('/post/new', validateAuth, (req, res) => {
+  res.render('admin/actions/create', { accessPage: true })
 })
 
-adminRouter.post('/post/new', (req, res) => {
+adminRouter.post('/post/new', validateAuth, (req, res) => {
   const { title, content, date, image, tag } = req.body
   const posts = getPosts()
 
@@ -42,15 +43,15 @@ adminRouter.post('/post/new', (req, res) => {
   res.redirect('/admin')
 })
 
-adminRouter.get('/post/:id', (req, res) => {
+adminRouter.get('/post/:id', validateAuth, (req, res) => {
   const { id } = req.params
   const posts = getPosts()
   const post = posts.find((post) => post.id == id)
   console.log(post)
-  res.render('admin/actions/edit', { post })
+  res.render('admin/actions/edit', { post, accessPage: true })
 })
 
-adminRouter.post('/post/edit/:id', (req, res) => {
+adminRouter.post('/post/edit/:id', validateAuth, (req, res) => {
   const { id } = req.params
   const { title, content, date } = req.body
   const posts = getPosts()

@@ -22,6 +22,11 @@ function getRecentPosts(posts, days) {
 
 indexRouter.get('/', (req, res) => {
   const posts = getPosts()
+  let accessPage = false
+  const cookie = req.cookies
+  const { token } = cookie
+
+  if (token) accessPage = true
 
   const recentPosts = getRecentPosts(posts, 2)
   const orderedPosts = posts.sort((a, b) => b.id - a.id)
@@ -29,12 +34,17 @@ indexRouter.get('/', (req, res) => {
   res.render('index', {
     posts: orderedPosts,
     recentPosts: recentPosts.sort((a, b) => b.id - a.id),
-    isAdmin: false
+    accessPage
   })
 })
 
 indexRouter.get('/post/:id', (req, res) => {
   const posts = getPosts()
+  let accessPage = false
+  const cookie = req.cookies
+  const { token } = cookie
+
+  if (token) accessPage = true
 
   const { id } = req.params
   const post = posts.find((post) => post.id == id)
@@ -43,7 +53,7 @@ indexRouter.get('/post/:id', (req, res) => {
   res.render('viewPost', {
     post,
     posts: posts.filter((p) => p.id != id),
-    isAdmin: false
+    accessPage
   })
 })
 
