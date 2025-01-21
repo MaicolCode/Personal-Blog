@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken'
-import { secret } from '../libs/jwt.js'
+import dotenv from 'dotenv'
+dotenv.config()
+
+const secret = process.env.JWT_SECRET
 
 export const validateAuth = (req, res, next) => {
   const cookies = req.cookies

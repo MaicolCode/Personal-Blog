@@ -1,5 +1,10 @@
 import { Router } from 'express'
 import { generateToken } from '../libs/jwt.js'
+import dotenv from 'dotenv'
+dotenv.config()
+
+const userAdmin = process.env.USER
+const passwordAdmin = process.env.PASSWORD
 
 const loginRouter = Router()
 
@@ -10,7 +15,7 @@ loginRouter.get('/', (req, res) => {
 loginRouter.post('/', async (req, res) => {
   const { user, password } = req.body
 
-  if (user === 'MaicolAdmin020603' && password === '020603PCH') {
+  if (user === userAdmin && password === passwordAdmin) {
     const token = await generateToken({ user })
 
     res.cookie('token', token)

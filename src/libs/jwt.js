@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+dotenv.config()
 
-export const secret = '020603PCH'
+const secret = process.env.JWT_SECRET
 
 export function generateToken(payload) {
   return new Promise((resolve, reject) =>
