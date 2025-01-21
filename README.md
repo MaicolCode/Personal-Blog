@@ -59,3 +59,55 @@ Sigue estos pasos para instalar y configurar el proyecto:
    http://localhost:3000
 
    ```
+
+---
+
+## Scripts Disponibles
+
+npm start: Inicia el servidor en modo producción.
+npm run dev: Inicia el servidor con Nodemon para desarrollo.
+
+---
+
+## Dependencias
+
+### Producción
+
+cookie-parser: Para analizar cookies.
+cors: Habilita el intercambio de recursos de origen cruzado.
+ejs: Renderiza vistas dinámicas.
+express: Framework web backend.
+jsonwebtoken: Maneja tokens JWT para autenticación.
+method-override: Soporte para métodos HTTP PUT y DELETE en formularios.
+morgan: Registra las solicitudes HTTP.
+tinymce: Editor de texto enriquecido.
+
+### Desarrollo
+
+nodemon: Reinicia automáticamente el servidor en cambios durante el desarrollo.
+
+---
+
+## Estructura del Proyecto
+
+```plaintext
+├── src
+│   ├── routes       # Rutas del servidor
+│   ├── controllers  # Controladores para manejar lógica
+│   ├── views        # Archivos EJS
+│   ├── utils        # Funciones auxiliares (por ejemplo, JSON de posts)
+│   └── public       # Archivos estáticos (CSS, JS, imágenes)
+├── .env             # Variables de entorno
+├── package.json     # Dependencias y scripts
+├── README.md        # Documentación del proyecto
+```
+
+## Próximos Pasos
+
+Implementar paginación para las publicaciones.
+Mejorar la seguridad utilizando Helmet.js.
+Desplegar el proyecto en plataformas como Render o Netlify.
+
+## Autor
+
+Desarrollado con ❤️ por MaicolPaucar.
