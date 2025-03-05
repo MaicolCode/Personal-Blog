@@ -35,7 +35,7 @@ app.set('views', join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 // Uso del editor de texto TinyMCE
-app.use('/tinymce', express.static(join(__dirname, 'node_modules', 'tinymce')))
+app.use('/tinymce', express.static(join(__dirname, 'public', 'tinymce')))
 
 app.use(express.static(join(__dirname, 'public')))
 
