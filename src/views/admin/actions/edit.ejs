@@ -8,16 +8,6 @@
     <%- include('../../partials/design') %>
   </head>
   <body class="general">
-    <!-- Script element sourcing TinyMCE -->
-    <script
-      src="/path/or/uri/to/tinymce.min.js"
-      referrerpolicy="origin"
-    ></script>
-    <!-- Script element sourcing the TinyMCE configuration -->
-    <script
-      type="application/javascript"
-      src="/javascripts/my-tinymce-config.js"
-    ></script>
     <main>
       <header><%- include('../../partials/nav')%></header>
       <section class="admin-section-edit">
@@ -53,6 +43,16 @@
       </section>
       <%- include('../../partials/footer')%>
     </main>
+    <!-- Script element sourcing TinyMCE -->
+    <script
+      type="application/javascript"
+      src="/tinymce/tinymce.min.js"
+    ></script>
+    <!-- Script element sourcing the TinyMCE configuration -->
+    <script
+      type="application/javascript"
+      src="/javascripts/my-tinymce-config.js"
+    ></script>
     <script>
       const btnEdit = document.querySelector('.btn-edit')
       const modalEdit = document.querySelector('.modal-content')

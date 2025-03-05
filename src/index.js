@@ -21,10 +21,11 @@ const port = process.env.PORT || 3000
 
 console.log(__dirname)
 
+app.use(logger('dev'))
 app.use(morgan())
 app.use(express.json())
 app.use(methodOverride('_method'))
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 
 // Configuracion lugar de almacenamiento de archivos
 
