@@ -26,10 +26,9 @@ app.use(morgan())
 app.use(express.json())
 app.use(cookieParser())
 app.use(methodOverride('_method'))
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 // Configuracion lugar de almacenamiento de archivos
-
 app.set('views', join(__dirname, 'views'))
 // Configuracion de motor de plantillas
 app.set('view engine', 'ejs')

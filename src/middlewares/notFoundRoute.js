@@ -1,4 +1,4 @@
-export const notFoundRoute = (req, res) => {
+export const notFoundRoute = (req, res, next) => {
   if (req.path.startsWith('/tinymce')) {
     return next() // Permite archivos estáticos de TinyMCE
   }
