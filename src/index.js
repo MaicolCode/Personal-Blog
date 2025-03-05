@@ -21,8 +21,10 @@ const port = process.env.PORT || 3000
 
 console.log(__dirname)
 
+app.use(cors())
 app.use(morgan())
 app.use(express.json())
+app.use(cookieParser())
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
 
@@ -32,13 +34,10 @@ app.set('views', join(__dirname, 'views'))
 // Configuracion de motor de plantillas
 app.set('view engine', 'ejs')
 
-app.use(express.static(join(__dirname, 'public')))
-
 // Uso del editor de texto TinyMCE
 app.use('/tinymce', express.static(join(__dirname, 'node_modules', 'tinymce')))
 
-app.use(cors())
-app.use(cookieParser())
+app.use(express.static(join(__dirname, 'public')))
 
 app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
