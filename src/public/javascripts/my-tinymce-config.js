@@ -1,3 +1,5 @@
+import tinymce from 'tinymce'
+
 tinymce.init({
   selector: 'textarea#my-expressjs-tinymce-app',
   plugins: ['image', 'fullscreen', 'lists'],
