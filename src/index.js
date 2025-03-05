@@ -40,14 +40,6 @@ app.use('/tinymce', express.static(join(__dirname, 'node_modules', 'tinymce')))
 app.use(cors())
 app.use(cookieParser())
 
-app.use((req, res, next) => {
-  res.setHeader(
-    'Content-Security-Policy',
-    "default-src 'self' https://cdn.tiny.cloud; script-src 'self' 'unsafe-inline' https://cdn.tiny.cloud;"
-  )
-  next()
-})
-
 app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
 app.use('/', indexRouter)
